@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/session_api/session_api.iml" filepath="$PROJECT_DIR$/session_api/session_api.iml" />
+      <module fileurl="file://$PROJECT_DIR$/session_core/session_core.iml" filepath="$PROJECT_DIR$/session_core/session_core.iml" />
+      <module fileurl="file://$PROJECT_DIR$/session_discovery/session_discovery.iml" filepath="$PROJECT_DIR$/session_discovery/session_discovery.iml" />
+      <module fileurl="file://$PROJECT_DIR$/session_dubbo/session_dubbo.iml" filepath="$PROJECT_DIR$/session_dubbo/session_dubbo.iml" />
+      <module fileurl="file://$PROJECT_DIR$/session_engine/session_engine.iml" filepath="$PROJECT_DIR$/session_engine/session_engine.iml" />
+      <module fileurl="file://$PROJECT_DIR$/session_recode.iml" filepath="$PROJECT_DIR$/session_recode.iml" />
+      <module fileurl="file://$PROJECT_DIR$/session_spi/session_spi.iml" filepath="$PROJECT_DIR$/session_spi/session_spi.iml" />
+    </modules>
+  </component>
+</project>

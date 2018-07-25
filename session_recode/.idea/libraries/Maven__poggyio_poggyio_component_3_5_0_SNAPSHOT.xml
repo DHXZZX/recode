@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="Maven: poggyio:poggyio-component:3.5.0-SNAPSHOT">
+    <CLASSES>
+      <root url="jar://$MAVEN_REPOSITORY$/poggyio/poggyio-component/3.5.0-SNAPSHOT/poggyio-component-3.5.0-20180530.101010-7.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$MAVEN_REPOSITORY$/poggyio/poggyio-component/3.5.0-SNAPSHOT/poggyio-component-3.5.0-20180530.101010-7-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$MAVEN_REPOSITORY$/poggyio/poggyio-component/3.5.0-SNAPSHOT/poggyio-component-3.5.0-20180530.101010-7-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>
