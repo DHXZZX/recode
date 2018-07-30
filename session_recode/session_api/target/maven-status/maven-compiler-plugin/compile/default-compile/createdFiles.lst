@@ -1,0 +1,7 @@
+dhxz\session\api\SessionPostRequest.class
+dhxz\session\api\SessionCloseRequest.class
+dhxz\session\api\SessionService.class
+dhxz\session\api\SessionPostRequest$SessionPostRequestBuilder.class
+dhxz\session\api\SessionNotFoundException.class
+dhxz\session\api\SessionCloseRequest$SessionCloseRequestBuilder.class
+dhxz\session\api\SessionException.class

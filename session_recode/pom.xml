@@ -15,6 +15,7 @@
         <module>session_spi</module>
         <module>session_discovery</module>
         <module>session_dubbo</module>
+        <module>session_integrations</module>
     </modules>
     <dependencies>
         <dependency>

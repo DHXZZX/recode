@@ -1,0 +1,11 @@
+dhxz\session\core\Session.class
+dhxz\session\core\Session$Metadata$MetadataBuilder.class
+dhxz\session\core\PacketContext$State.class
+dhxz\session\core\SessionContext.class
+dhxz\session\core\PacketContext.class
+dhxz\session\core\Session$Metadata.class
+dhxz\session\core\SessionSupport.class
+dhxz\session\core\PacketContextSupport.class
+dhxz\session\core\SessionContext$SessionContextBuilder.class
+dhxz\session\core\Session$State.class
+dhxz\session\core\SessionRegistry.class
