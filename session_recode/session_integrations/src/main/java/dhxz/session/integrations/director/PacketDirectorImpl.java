@@ -16,6 +16,7 @@ import lombok.Builder;
 import lombok.Data;
 import org.dayatang.utils.Assert;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 import poggyio.commons.Constants;
 import poggyio.dataschemas.Message;
 import poggyio.dataschemas.Packet;
@@ -27,6 +28,7 @@ import poggyio.uc.api.DeviceService;
 import java.util.Base64;
 import java.util.Objects;
 
+@Service
 public class PacketDirectorImpl implements PacketDirector {
 
     private static ObjectMapper OBJECT_MAPPER;

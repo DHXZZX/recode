@@ -3,6 +3,8 @@ package dhxz.session.integrations;
 import dhxz.session.core.SessionContext;
 import dhxz.session.spi.MessageHandler;
 import org.dayatang.utils.Assert;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 import org.springframework.util.StringUtils;
 import poggyio.commons.logger.Loggers;
 import poggyio.dataschemas.Message;
@@ -10,12 +12,14 @@ import poggyio.dataschemas.ParticipantType;
 import poggyio.schd.api.TaskService;
 import poggyio.schd.integrations.serveplatform.Client2AppTask;
 
+@Component
 public class AppHandler implements MessageHandler {
     private TaskService taskService;
 
     /**
      * @param taskService
      */
+    @Autowired
     public AppHandler(TaskService taskService) {
         Assert.notNull(taskService, "taskService must not be null.");
         this.taskService = taskService;

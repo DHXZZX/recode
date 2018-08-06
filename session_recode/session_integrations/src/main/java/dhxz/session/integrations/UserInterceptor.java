@@ -2,11 +2,13 @@ package dhxz.session.integrations;
 
 import dhxz.session.core.SessionContext;
 import dhxz.session.spi.MessageInterceptor;
+import org.springframework.stereotype.Component;
 import poggyio.dataschemas.Message;
 import poggyio.logging.Loggers;
 
 import static poggyio.lang.Strings.equalsIgnoreCase;
 
+@Component
 public class UserInterceptor implements MessageInterceptor {
 
     @Override

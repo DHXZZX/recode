@@ -2,6 +2,8 @@ package dhxz.session.integrations;
 
 import dhxz.session.core.SessionContext;
 import dhxz.session.spi.MessageHandler;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 import poggyio.dataschemas.Message;
 import poggyio.dataschemas.body.ACKBody;
 import poggyio.lang.Requires;
@@ -14,10 +16,12 @@ import poggyio.schd.integrations.RemoveAckTask;
 
 import java.util.List;
 
+@Component
 public class ACKHandler implements MessageHandler {
 
     private final TaskService taskService;
 
+    @Autowired
     public ACKHandler(TaskService taskService) {
         Requires.notNull(taskService, "taskService must not be null.");
         this.taskService = taskService;

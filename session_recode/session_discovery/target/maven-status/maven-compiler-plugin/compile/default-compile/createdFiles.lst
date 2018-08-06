@@ -1,2 +1,9 @@
-dhxz\session\discovery\selector\RoundRobinSelector.class
+dhxz\session\discovery\selector\RandomSelector.class
+dhxz\session\discovery\TransportInstance.class
+dhxz\session\discovery\zk\ZooDiscoveryService$TransportInstanceSerializer.class
+dhxz\session\discovery\DiscoveryService.class
 dhxz\session\discovery\TransportSelector.class
+dhxz\session\discovery\TransportInstance$TransportInstanceBuilder.class
+dhxz\session\discovery\zk\ZooDiscoveryService.class
+dhxz\session\discovery\selector\RoundRobinSelector.class
+dhxz\session\discovery\DiscoveryException.class
