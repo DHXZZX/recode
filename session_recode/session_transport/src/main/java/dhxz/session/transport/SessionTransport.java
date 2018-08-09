@@ -83,34 +83,134 @@ public abstract class SessionTransport extends AbstractComponent {
         } catch (SSLException e) {
             throw new SessionTransportException("start session transport occurs error.", e);
         } catch (InterruptedException e) {
-            e.printStackTrace();
+            throw new SessionTransportException("start session transport occurs error.", e);
         }
     }
 
     protected abstract ChannelInitializer<Channel> doGetChannelInitializer(SslContext sslContext);
 
-    private SslContext getSslContext() throws SSLException {
-        Loggers.me().warn(getClass(),"load ssl[key={}, crt={}]",getSslKey(),getSslCrt());
+    @Override
+    protected void doStop() {
+        if(null != serviceBossGroup) {
+            try {
+                serviceBossGroup.shutdownGracefully().sync();
+            } catch (InterruptedException ignore) {
+
+            }
+        }
+
+        if (null != serviceWorkGroup) {
+            try {
+                serviceWorkGroup.shutdownGracefully().sync();
+            } catch (InterruptedException ignore) {
+
+            }
+        }
+    }
+
+    public final SessionRegistry sessionRegistry(){
+        return sessionRegistry;
+    }
+
+    public final SessionTransportConfig sessionConfig() {
+        return sessionConfig;
+    }
+
+    public final PacketDirector protocolDirector() {
+        return packetDirector;
+    }
+    public final List<PacketProcessor> protocolProcessors() {
+        return packetProcessors;
+    }
+    public final void setPacketProcessors(List<PacketProcessor> packetProcessors) {
+        Assert.notNull(packetProcessors, "packetProcessors must not be null.");
+        this.packetProcessors = packetProcessors;
+    }
+
+    /**
+     * @return
+     */
+    public final List<MessageHandler> messageHandlers() {
+        return messageHandlers;
+    }
+
+    /**
+     * @param messageHandlers
+     */
+    public final void setMessageHandlers(List<MessageHandler> messageHandlers) {
+        Assert.notNull(messageHandlers, "messageHandlers must not be null.");
+        this.messageHandlers = messageHandlers;
+    }
+
+    /**
+     * @return
+     */
+    public final List<MessageInterceptor> messageInterceptors() {
+        return messageInterceptors;
+    }
+
+    /**
+     * @param messageInterceptors
+     */
+    public final void setMessageInterceptors(List<MessageInterceptor> messageInterceptors) {
+        Assert.notNull(messageInterceptors, "messageInterceptors must not be null.");
+        this.messageInterceptors = messageInterceptors;
+    }
+
+    /**
+     * @return
+     */
+    public final SessionListener sessionListener() {
+        return sessionListener;
+    }
+
+    /**
+     * @param sessionListener
+     */
+    public final void setSessionListener(SessionListener sessionListener) {
+        Assert.notNull(sessionListener, "sessionListener must not be null.");
+        this.sessionListener = sessionListener;
+    }
+    protected int getIdleTimeout() {
+        return sessionConfig().intParamOrDefault("idle.timeout", getIdleCheckPeriod() * 3);
+    }
+
+    protected int getIdleInitTimeout() {
+        return sessionConfig().intParamOrDefault("init.idle.timeout", getIdleCheckPeriod());
+    }
+    protected int getIdleCheckPeriod() {
+        return sessionConfig().intParamOrDefault("idle.period", 180);
+    }
+
+    protected long getTrafficLimit() {
+        return sessionConfig().longParamOrDefault("traffic.limit", 16384L);
+    }
+
+    protected long getTrafficCheckInterval() {
+        return sessionConfig().longParamOrDefault("traffic.interval", 16000L);
+    }
+
+    protected boolean isSslEnabled() {
+        return sessionConfig().booleanParamOrDefault("ssl.enabled", false);
+    }
+
+    protected boolean isSslVerify() {
+        return sessionConfig().booleanParamOrDefault("ssl.verify", false);
+    }
+
+    protected String getSslCrt() {
+        return sessionConfig().paramOrDefault("ssl.crt", "");
+    }
+
+    protected String getSslKey() {
+        return sessionConfig().paramOrDefault("ssl.key", "");
+    }
+
+    protected SslContext getSslContext() throws SSLException {
+        Loggers.me().warn(getClass(), "load ssl[key={}, crt={}].", getSslKey(), getSslCrt());
         return SslContextBuilder.forServer(
                 getClass().getResourceAsStream(getSslCrt()),
                 getClass().getResourceAsStream(getSslKey())
         ).clientAuth(ClientAuth.NONE).build();
-    }
-
-    private String getSslKey() {
-        return sessionConfig.paramOrDefault("ssl.key","");
-    }
-
-    private String getSslCrt() {
-        return sessionConfig.paramOrDefault("ssl.crt","");
-    }
-
-    private boolean isSslEnabled() {
-        return sessionConfig.booleanParamOrDefault("ssl.enabled",false);
-    }
-
-    @Override
-    protected void doStop() {
-
     }
 }
