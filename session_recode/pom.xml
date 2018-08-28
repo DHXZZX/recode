@@ -8,6 +8,10 @@
     <artifactId>session_recode</artifactId>
     <packaging>pom</packaging>
     <version>1.0-SNAPSHOT</version>
+    <properties>
+        <poggyio.version>3.5.0-SNAPSHOT</poggyio.version>
+    </properties>
+
     <modules>
         <module>session_core</module>
         <module>session_engine</module>
@@ -16,17 +20,15 @@
         <module>session_discovery</module>
         <module>session_dubbo</module>
         <module>session_integrations</module>
+        <module>session_transport</module>
+        <module>session_bootstrap</module>
     </modules>
+
     <dependencies>
         <dependency>
             <groupId>poggyio</groupId>
             <artifactId>poggyio-commons</artifactId>
-            <version>3.5.0-SNAPSHOT</version>
-        </dependency>
-        <dependency>
-            <groupId>org.projectlombok</groupId>
-            <artifactId>lombok</artifactId>
-            <version>1.18.0</version>
+            <version>${poggyio.version}</version>
         </dependency>
     </dependencies>
 
