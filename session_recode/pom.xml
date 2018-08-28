@@ -21,6 +21,7 @@
         <module>session_dubbo</module>
         <module>session_integrations</module>
         <module>session_transport</module>
+        <module>session_bootstrap</module>
     </modules>
 
     <dependencies>
